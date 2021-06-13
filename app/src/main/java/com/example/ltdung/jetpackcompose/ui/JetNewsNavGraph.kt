@@ -10,6 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.ltdung.jetpackcompose.data.AppContainer
+import com.example.ltdung.jetpackcompose.ui.home.HomeScreen
 import kotlinx.coroutines.launch
 
 /**
@@ -38,7 +39,11 @@ fun JetNewsNavGraph(
         startDestination = startDestination
     ) {
         composable(MainDestinations.HOME_ROUTE) {
-
+            HomeScreen(
+                postsRepository = appContainer.postsRepository,
+                navigateToArticle = actions.navigateToArticle,
+                openDrawer = openDrawer
+            )
         }
         composable(MainDestinations.INTERESTS_ROUTE) {
 
